@@ -1,0 +1,42 @@
+<mat-toolbar class="header-container mat-elevation-z8">
+  <div class="left-side" routerLink="">
+    <img src="../../../assets/images/logo.svg" alt="Logo" />
+    <span class="title">Virtual Learning Platform</span>
+  </div>
+  <div class="right-side">
+    <button mat-icon-button class="menu-btn" (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-nav-list class="nav-list">
+      <a mat-list-item routerLink="/courses" routerLinkActive>Courses</a>
+      <a mat-list-item routerLink="/login" routerLinkActive>Login</a>
+      <a mat-list-item routerLink="/register" routerLinkActive>Register</a>
+      <button mat-icon-button [matMenuTriggerFor]="profileMenu">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      <mat-menu #profileMenu="matMenu">
+        <button mat-menu-item routerLink="/my-courses" routerLinkActive>
+          My Courses
+        </button>
+        <button mat-menu-item routerLink="/enrolled-courses" routerLinkActive>
+          Enrolled Courses
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item routerLink="/notifications" routerLinkActive>
+          Notifications
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item routerLink="/settings" routerLinkActive>
+          Account Settings
+        </button>
+        <button mat-menu-item routerLink="/language" routerLinkActive>
+          Language
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item routerLink="/logout" routerLinkActive>
+          Logout
+        </button>
+      </mat-menu>
+    </mat-nav-list>
+  </div>
+</mat-toolbar>

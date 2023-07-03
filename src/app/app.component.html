@@ -1,0 +1,40 @@
+<mat-sidenav-container>
+  <mat-sidenav #nav mode="over" position="end" [opened]="false">
+    <mat-nav-list class="nav-list">
+      <div mat-list-item class="user-info-container">
+        <mat-icon>account_circle</mat-icon>
+        <div class="user-info">
+          <span>Ivan Simeonov</span>
+          <span>ivannicksimeonov@gmail.com</span>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLink="/courses" routerLinkActive>Courses</a>
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLink="/login" routerLinkActive>Login</a>
+      <a mat-list-item routerLink="/register" routerLinkActive>Register</a>
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLink="/my-courses" routerLinkActive>My Courses</a>
+      <a mat-list-item routerLink="/enrolled-courses" routerLinkActive
+        >Enrolled Courses</a
+      >
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLink="/notifications" routerLinkActive
+        >Notifications</a
+      >
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLink="/settings" routerLinkActive
+        >Account Settings</a
+      >
+      <a mat-list-item routerLink="/language" routerLinkActive>Language</a>
+      <a mat-list-item routerLink="/logout" routerLinkActive>Logout</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-header (sidenavToggle)="nav.toggle()"></app-header>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+    <app-footer></app-footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>
