@@ -1,0 +1,43 @@
+<mat-sidenav-container>
+  <mat-sidenav #nav mode="over" [opened]="false">
+    <mat-nav-list class="nav-list">
+      <div mat-list-item class="user-info-container">
+        <mat-icon>account_circle</mat-icon>
+        <div class="user-info">
+          <span>Ivan Simeonov</span>
+          <span>ivannicksimeonov@gmail.com</span>
+        </div>
+      </div>
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLink="/courses">Login</a>
+      <a mat-list-item routerLink="/courses">Register</a>
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLink="/courses">My Courses</a>
+      <a mat-list-item routerLink="/browse-courses">Enrolled Courses</a>
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLink="/become-teacher">Notifications</a>
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLink="/become-teacher">Account Settings</a>
+      <a mat-list-item routerLink="/become-teacher">Language</a>
+      <a mat-list-item routerLink="/become-teacher">Logout</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-header (sidenavToggle)="nav.toggle()"></app-header>
+    <div class="container">
+      <router-outlet></router-outlet>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque eveniet
+      praesentium accusantium eligendi? Molestias accusamus cupiditate ratione
+      velit impedit. Enim nulla aut commodi id rem. Fugiat odit fuga saepe
+      corporis ea eius, laboriosam vero, quae reprehenderit numquam perspiciatis
+      rem nihil voluptatem, aut in pariatur libero. Perferendis aperiam
+      repudiandae dicta sit nam? Eius voluptatem reprehenderit aut tempore
+      aperiam illum magnam quod nihil autem iure distinctio doloremque, facere
+      eligendi odio illo consequatur hic earum non? Eaque reprehenderit repellat
+      necessitatibus incidunt et voluptates? Deleniti fugit deserunt, vel,
+      beatae ipsa molestias eligendi possimus libero eius sit id, aspernatur
+      ratione modi saepe ducimus dignissimos reprehenderit.
+    </div>
+    <app-footer></app-footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>

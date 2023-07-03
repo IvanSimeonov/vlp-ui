@@ -1,0 +1,30 @@
+<mat-toolbar class="header-container mat-elevation-z8">
+  <div class="left-panel">
+    <button mat-icon-button class="menu-btn" (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <img src="../../../assets/logo-2.svg" alt="Logo" />
+    <span>Virtual Learning Platform</span>
+  </div>
+  <div class="right-panel">
+    <mat-nav-list class="nav-list">
+      <a mat-list-item routerLink="/courses">Courses</a>
+      <a mat-list-item routerLink="/browse-courses">Login</a>
+      <a mat-list-item routerLink="/become-teacher">Register</a>
+      <button mat-icon-button [matMenuTriggerFor]="profileMenu">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      <mat-menu #profileMenu="matMenu">
+        <button mat-menu-item routerLink="/my-profile">My Courses</button>
+        <button mat-menu-item routerLink="/my-profile">Enrolled Courses</button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item routerLink="/settings">Notifications</button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item routerLink="/settings">Account Settings</button>
+        <button mat-menu-item routerLink="/settings">Language</button>
+        <mat-divider></mat-divider>
+        <button mat-menu-item routerLink="/logout">Logout</button>
+      </mat-menu>
+    </mat-nav-list>
+  </div>
+</mat-toolbar>
