@@ -9,14 +9,12 @@ mat-sidenav {
 }
 
 .container {
-  margin: 70px 0 10px 0;
+  margin: 70px 0 10px;
   padding: 0 16px;
 }
 
 .user-info-container {
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
   align-items: center;
 
   .mat-icon {
@@ -24,9 +22,10 @@ mat-sidenav {
     width: 48px;
     height: 48px;
   }
-}
 
-.user-info {
-  display: flex;
-  flex-direction: column;
+  .user-info {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+  }
 }

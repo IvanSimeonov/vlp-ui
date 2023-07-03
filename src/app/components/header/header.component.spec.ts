@@ -1,21 +1,31 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { HeaderComponent } from "./header.component";
+import { MaterialModule } from "src/app/shared/material/material.module";
 
-import { HeaderComponent } from './header.component';
-
-describe('HeaderComponent', () => {
+describe("HeaderComponent", () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
 
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [HeaderComponent],
+      imports: [MaterialModule],
+    }).compileComponents();
+  });
+
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [HeaderComponent]
-    });
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create the component", () => {
     expect(component).toBeTruthy();
+  });
+
+  it("should emit the sidenavToggle event when onToggleSidenav is called", () => {
+    spyOn(component.sidenavToggle, "emit");
+    component.onToggleSidenav();
+    expect(component.sidenavToggle.emit).toHaveBeenCalled();
   });
 });
