@@ -28,4 +28,10 @@ describe("HeaderComponent", () => {
     component.onToggleSidenav();
     expect(component.sidenavToggle.emit).toHaveBeenCalled();
   });
+
+  it("should emit the sidenavClose event when onCloseSidenav is called", () => {
+    spyOn(component.sidenavClose, "emit");
+    component.onCloseSidenav();
+    expect(component.sidenavClose.emit).toHaveBeenCalled();
+  });
 });
