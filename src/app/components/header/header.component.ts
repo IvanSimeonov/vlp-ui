@@ -7,8 +7,13 @@ import { Component, EventEmitter, Output } from "@angular/core";
 })
 export class HeaderComponent {
   @Output() public sidenavToggle = new EventEmitter();
+  @Output() public sidenavClose = new EventEmitter();
 
-  public onToggleSidenav = () => {
+  public onToggleSidenav(): void {
     this.sidenavToggle.emit();
-  };
+  }
+
+  public onCloseSidenav(): void {
+    this.sidenavClose.emit();
+  }
 }

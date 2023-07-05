@@ -1,5 +1,5 @@
 <mat-sidenav-container>
-  <mat-sidenav #nav mode="over" position="end" [opened]="false">
+  <mat-sidenav #nav mode="over" position="end" [opened]="isSidenavOpen">
     <mat-nav-list class="nav-list">
       <div mat-list-item class="user-info-container">
         <mat-icon>account_circle</mat-icon>
@@ -9,29 +9,80 @@
         </div>
       </div>
       <mat-divider></mat-divider>
-      <a mat-list-item routerLink="/courses" routerLinkActive>Courses</a>
+      <a
+        mat-list-item
+        routerLink="/courses"
+        routerLinkActive
+        (click)="closeSidenav()"
+        >Courses</a
+      >
       <mat-divider></mat-divider>
-      <a mat-list-item routerLink="/login" routerLinkActive>Login</a>
-      <a mat-list-item routerLink="/register" routerLinkActive>Register</a>
+      <a
+        mat-list-item
+        routerLink="/login"
+        routerLinkActive
+        (click)="closeSidenav()"
+        >Login</a
+      >
+      <a
+        mat-list-item
+        routerLink="/register"
+        routerLinkActive
+        (click)="closeSidenav()"
+        >Register</a
+      >
       <mat-divider></mat-divider>
-      <a mat-list-item routerLink="/my-courses" routerLinkActive>My Courses</a>
-      <a mat-list-item routerLink="/enrolled-courses" routerLinkActive
+      <a
+        mat-list-item
+        routerLink="/my-courses"
+        routerLinkActive
+        (click)="closeSidenav()"
+        >My Courses</a
+      >
+      <a
+        mat-list-item
+        routerLink="/enrolled-courses"
+        routerLinkActive
+        (click)="closeSidenav()"
         >Enrolled Courses</a
       >
       <mat-divider></mat-divider>
-      <a mat-list-item routerLink="/notifications" routerLinkActive
+      <a
+        mat-list-item
+        routerLink="/notifications"
+        routerLinkActive
+        (click)="closeSidenav()"
         >Notifications</a
       >
       <mat-divider></mat-divider>
-      <a mat-list-item routerLink="/settings" routerLinkActive
+      <a
+        mat-list-item
+        routerLink="/settings"
+        routerLinkActive
+        (click)="closeSidenav()"
         >Account Settings</a
       >
-      <a mat-list-item routerLink="/language" routerLinkActive>Language</a>
-      <a mat-list-item routerLink="/logout" routerLinkActive>Logout</a>
+      <a
+        mat-list-item
+        routerLink="/language"
+        routerLinkActive
+        (click)="closeSidenav()"
+        >Language</a
+      >
+      <a
+        mat-list-item
+        routerLink="/logout"
+        routerLinkActive
+        (click)="closeSidenav()"
+        >Logout</a
+      >
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <app-header (sidenavToggle)="nav.toggle()"></app-header>
+    <app-header
+      (sidenavToggle)="nav.toggle()"
+      (sidenavClose)="nav.close()"
+    ></app-header>
     <div class="container">
       <router-outlet></router-outlet>
     </div>

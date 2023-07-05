@@ -1,0 +1,39 @@
+.register-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.register-btn {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.login-btn {
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .register-form {
+    padding: 10px;
+  }
+
+  .form-field {
+    margin-bottom: 10px;
+  }
+
+  .register-btn {
+    margin-bottom: 10px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+}

@@ -12,6 +12,9 @@ import { RouterActivatedMatListItemDirective } from "./shared/directives/router-
 import { RouterModule } from "@angular/router";
 import { CommonModule } from "@angular/common";
 import { HomepageComponent } from "./pages/homepage/homepage.component";
+import { LoginComponent } from "./pages/login/login.component";
+import { RegisterComponent } from "./pages/register/register.component";
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -20,11 +23,14 @@ import { HomepageComponent } from "./pages/homepage/homepage.component";
     CoursesComponent,
     FooterComponent,
     HomepageComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     CommonModule,
     BrowserModule,
     RouterModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
