@@ -1,1 +1,60 @@
-<p>login works!</p>
+<div class="login-form">
+  <form [formGroup]="loginForm">
+    <h3 class="title">Login to your VLP account</h3>
+    <mat-form-field class="form-field">
+      <mat-label for="email">E-Mail</mat-label>
+      <input id="email" type="email" matInput formControlName="email" />
+      <mat-error *ngIf="formFields.email.errors?.['required']"
+        >Please fill in this field.</mat-error
+      >
+      <mat-error *ngIf="formFields.email.errors?.['email']"
+        >Please provide a valid e-mail address.</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field class="form-field">
+      <mat-label for="password">Password</mat-label>
+      <input
+        id="password"
+        [type]="hide ? 'password' : 'text'"
+        matInput
+        formControlName="password"
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+      >
+        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+      </button>
+      <mat-error *ngIf="formFields.password.errors?.['required']"
+        >Please fill in this field.</mat-error
+      >
+      <mat-error *ngIf="formFields.password.errors?.['minlength']"
+        >Please lenghten this text to 8 characters or more.</mat-error
+      >
+    </mat-form-field>
+
+    <button
+      class="login-btn"
+      type="submit"
+      color="primary"
+      mat-raised-button
+      (click)="onSubmit()"
+    >
+      Login
+    </button>
+
+    <button
+      class="register-btn"
+      type="button"
+      color="accent"
+      mat-raised-button
+      routerLink="/register"
+    >
+      Don't have an account? Register
+    </button>
+  </form>
+</div>

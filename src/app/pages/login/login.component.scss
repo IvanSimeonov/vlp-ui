@@ -1,0 +1,37 @@
+.login-form {
+  max-width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4.8rem 2.4rem;
+  margin: 0 auto;
+}
+
+.form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.login-btn {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.register-btn {
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .login-form {
+    max-width: 100%;
+    padding: 2.4rem 1.2rem;
+  }
+
+  .form-field {
+    margin-bottom: 10px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+}

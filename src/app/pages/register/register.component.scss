@@ -1,8 +1,9 @@
 .register-form {
+  max-width: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  padding: 4.8rem 2.4rem;
   margin: 0 auto;
 }
 
@@ -22,14 +23,11 @@
 
 @media (max-width: 600px) {
   .register-form {
-    padding: 10px;
+    max-width: 100%;
+    padding: 2.4rem 1.2rem;
   }
 
   .form-field {
-    margin-bottom: 10px;
-  }
-
-  .register-btn {
     margin-bottom: 10px;
   }
 
