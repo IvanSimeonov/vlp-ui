@@ -9,8 +9,10 @@ mat-sidenav {
 }
 
 .container {
-  margin: 70px 0 10px;
-  padding: 0 16px;
+  padding: 70px 16px 10px 16px;
+  // background-image: url(./../assets/images/bg-img-5.jpg);
+  // background-size: cover;
+  // background-position: center;
 }
 
 .user-info-container {
@@ -27,5 +29,25 @@ mat-sidenav {
     margin-left: 10px;
     display: flex;
     flex-direction: column;
+  }
+}
+
+.mat-sidenav-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  flex-grow: 1;
+}
+
+.app-footer {
+  flex-shrink: 0;
+}
+
+@media (max-height: 600px) {
+  .mat-sidenav-content {
+    min-height: calc(100vh - 72px);
   }
 }

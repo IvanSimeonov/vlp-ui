@@ -1,0 +1,71 @@
+<div class="register-form">
+  <form [formGroup]="registerForm">
+    <h3 class="title">
+      Expand Your Horizons: Register for Virtual Learning Platform
+    </h3>
+    <mat-form-field class="form-field">
+      <mat-label for="fullname">Fullname</mat-label>
+      <input id="fullname" type="text" matInput formControlName="fullname" />
+      <mat-error *ngIf="formFields.email.errors?.['required']"
+        >Please fill in this field.</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field class="form-field">
+      <mat-label for="email">E-Mail</mat-label>
+      <input id="email" type="email" matInput formControlName="email" />
+      <mat-error *ngIf="formFields.email.errors?.['required']"
+        >Please fill in this field.</mat-error
+      >
+      <mat-error *ngIf="formFields.email.errors?.['email']"
+        >Please provide a valid e-mail address.</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field class="form-field">
+      <mat-label for="password">Password</mat-label>
+      <input
+        id="password"
+        [type]="hide ? 'password' : 'text'"
+        matInput
+        formControlName="password"
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+      >
+        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+      </button>
+      <mat-error *ngIf="formFields.password.errors?.['required']"
+        >Please fill in this field.</mat-error
+      >
+      <mat-error *ngIf="formFields.password.errors?.['minlength']"
+        >Please use password that is at least 8 characters long.</mat-error
+      >
+    </mat-form-field>
+
+    <button
+      class="register-btn"
+      type="submit"
+      color="primary"
+      mat-raised-button
+      [disabled]="!registerForm.valid"
+      (click)="onSubmit()"
+    >
+      Register
+    </button>
+
+    <button
+      class="login-btn"
+      type="button"
+      color="accent"
+      mat-raised-button
+      routerLink="/login"
+    >
+      Already have an account? Sign In.
+    </button>
+  </form>
+</div>
