@@ -1,1 +1,34 @@
-<p>homepage works!</p>
+<div class="container">
+  <mat-card class="section" id="first-section">
+    <!-- First Section with Image Background -->
+    <div class="background-image">
+      <!-- Content for the first section, if needed -->
+    </div>
+  </mat-card>
+
+  <mat-card class="section" id="second-section">
+    <!-- Second Section with Two Charts -->
+    <div class="chart-container">
+      <!-- Content for the second section, e.g., ngx-charts components -->
+    </div>
+  </mat-card>
+
+  <mat-card class="section" id="third-section">
+    <!-- Third Section with Top Rated Courses -->
+    <h2>Top Rated Courses</h2>
+    <div class="top-rated-courses">
+      <app-course-card
+        *ngFor="let course of courses"
+        [course]="course"
+      ></app-course-card>
+    </div>
+  </mat-card>
+
+  <mat-card class="section" id="fourth-section">
+    <!-- Fourth Section with Testimonials -->
+    <h2>What people think</h2>
+    <div class="testimonials">
+      <app-user-card *ngFor="let user of users" [user]="user"></app-user-card>
+    </div>
+  </mat-card>
+</div>

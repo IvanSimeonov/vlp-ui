@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.section {
+  flex: 1; /* Distribute available space among sections equally */
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+#first-section {
+  padding: 0;
+}
+
+#first-section .background-image {
+  background-image: url("../../../assets/images/bg-img-3.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 400px; /* You can adjust the height as needed */
+}
+
+#second-section .chart-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+#third-section .top-rated-courses,
+#fourth-section .testimonials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .section {
+    width: 95%;
+  }
+
+  #first-section .background-image {
+    height: 300px;
+  }
+
+  #second-section .chart-container,
+  #third-section .top-rated-courses,
+  #fourth-section .testimonials {
+    grid-template-columns: 1fr;
+  }
+}

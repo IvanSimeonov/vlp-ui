@@ -1,0 +1,26 @@
+<mat-card class="course-card mat-elevation-z6">
+  <img mat-card-image src="{{ course.image }}" alt="Course Image" />
+  <mat-card-content>
+    <div class="card-content">
+      <span class="course-title">{{ course.title }}</span>
+      <span class="course-author">{{ course.author }}</span>
+    </div>
+  </mat-card-content>
+  <mat-card-footer>
+    <div class="rating-container">
+      <span class="rating-value">{{ course.rating | number : "1.1-1" }}</span>
+      <ng-container *ngFor="let _ of [].constructor(course.rating)">
+        <mat-icon class="star-icon">star</mat-icon>
+      </ng-container>
+      <ng-container *ngFor="let _ of [].constructor(getRemainingStars())">
+        <mat-icon class="star-icon">star_border</mat-icon>
+      </ng-container>
+      <span class="rating-total-votes">({{ course.totalVotes }})</span>
+    </div>
+    <ul class="course-footer">
+      <li>{{ course.hours }} hours</li>
+      <li>{{ course.totalLectures }} lectures</li>
+      <li>{{ course.difficulty }}</li>
+    </ul>
+  </mat-card-footer>
+</mat-card>

@@ -1,0 +1,39 @@
+.course-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  @media screen and (max-width: 767px) {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (min-width: 1024px) and (max-width: 1279px) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media screen and (min-width: 1281px) and (max-width: 1439px) {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media screen and (min-width: 1440px) and (max-width: 1599px) {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  @media screen and (min-width: 1920px) and (max-width: 2048px) {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+  }
+  @media screen and (min-width: 2049px) {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
