@@ -15,6 +15,14 @@ import { HomepageComponent } from "./pages/homepage/homepage.component";
 import { LoginComponent } from "./pages/login/login.component";
 import { RegisterComponent } from "./pages/register/register.component";
 import { ReactiveFormsModule } from "@angular/forms";
+import { CourseCardComponent } from "./components/course-card/course-card.component";
+import { ProfileComponent } from "./pages/profile/profile.component";
+import { UserManagementComponent } from "./pages/user-management/user-management.component";
+import { UserCardComponent } from "./components/user-card/user-card.component";
+import { PageNotFoundComponent } from "./pages/page-not-found/page-not-found.component";
+import { PageForbiddenComponent } from "./pages/page-forbidden/page-forbidden.component";
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
+import { AuthInterceptor } from "./auth/interceptors/auth.interceptor";
 
 @NgModule({
   declarations: [
@@ -25,6 +33,12 @@ import { ReactiveFormsModule } from "@angular/forms";
     HomepageComponent,
     LoginComponent,
     RegisterComponent,
+    CourseCardComponent,
+    ProfileComponent,
+    UserManagementComponent,
+    UserCardComponent,
+    PageNotFoundComponent,
+    PageForbiddenComponent,
   ],
   imports: [
     CommonModule,
@@ -35,8 +49,11 @@ import { ReactiveFormsModule } from "@angular/forms";
     BrowserAnimationsModule,
     MaterialModule,
     RouterActivatedMatListItemDirective,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

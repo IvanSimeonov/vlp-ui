@@ -5,6 +5,8 @@ import {
   FormGroup,
   Validators,
 } from "@angular/forms";
+import { Router } from "@angular/router";
+import { AuthService } from "src/app/auth/services/auth.service";
 
 @Component({
   selector: "app-register",
@@ -23,13 +25,34 @@ export class RegisterComponent {
     ]),
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   get formFields() {
     return this.registerForm.controls;
   }
 
   onSubmit() {
-    console.log(this.registerForm.value);
+    const fullname = this.registerForm.value.fullname?.split(" ");
+    const firstName = fullname ? fullname[0] : "";
+    const lastName = fullname ? fullname[1] : "";
+    const email = this.registerForm.value.email
+      ? this.registerForm.value.email
+      : "";
+    const password = this.registerForm.value.password
+      ? this.registerForm.value.password
+      : "";
+    this.authService.register(email, password, firstName, lastName).subscribe({
+      next: (data) => {
+        console.log(data);
+        this.router.navigate(["/login"]);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 }

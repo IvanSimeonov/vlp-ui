@@ -1,0 +1,99 @@
+<div class="container">
+  <div class="filter-sort-actions-container">
+    <div class="left-side">
+      <button
+        mat-stroked-button
+        class="filter-button"
+        [ngClass]="{ 'filter-btn-colors': !isHidden }"
+        (click)="toggleVisibilty()"
+      >
+        Filter
+        <mat-icon> filter_list </mat-icon>
+      </button>
+      <mat-form-field appearance="outline" class="sort-form-field">
+        <mat-label class="sort-label">
+          <mat-icon> sort </mat-icon>
+          <span>Sort By</span>
+        </mat-label>
+        <mat-select>
+          <mat-option value="option1">
+            Name
+            <mat-icon>arrow_upward</mat-icon>
+          </mat-option>
+          <mat-option value="option2">
+            Name
+            <mat-icon>arrow_downward</mat-icon>
+          </mat-option>
+          <mat-option value="option1">
+            E-Mail
+            <mat-icon>arrow_upward</mat-icon>
+          </mat-option>
+          <mat-option value="option2">
+            E-Mail
+            <mat-icon>arrow_downward</mat-icon>
+          </mat-option>
+          <mat-option value="option1">
+            Role
+            <mat-icon>arrow_upward</mat-icon>
+          </mat-option>
+          <mat-option value="option2">
+            Role
+            <mat-icon>arrow_downward</mat-icon>
+          </mat-option>
+          <mat-option value="option1">
+            Status
+            <mat-icon>arrow_upward</mat-icon>
+          </mat-option>
+          <mat-option value="option2">
+            Status
+            <mat-icon>arrow_downward</mat-icon>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="right-side">{{ users.length }} results</div>
+  </div>
+  <div class="main-content-container">
+    <div class="filter-container" [ngClass]="{ hidden: isHidden }">
+      <mat-accordion multi>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>Role</mat-panel-title>
+          </mat-expansion-panel-header>
+          <section>
+            <mat-radio-group
+              aria-label="Select an option"
+              class="role-radio-group"
+            >
+              <mat-radio-button value="1">Student</mat-radio-button>
+              <mat-radio-button value="2">Teacher</mat-radio-button>
+              <mat-radio-button value="3">Admin</mat-radio-button>
+            </mat-radio-group>
+          </section>
+        </mat-expansion-panel>
+        <mat-expansion-panel [expanded]="true">
+          <mat-expansion-panel-header>
+            <mat-panel-title>Status</mat-panel-title>
+          </mat-expansion-panel-header>
+          <section>
+            <mat-radio-group
+              aria-label="Select an option"
+              class="status-radio-group"
+            >
+              <mat-radio-button value="1">Aktiv</mat-radio-button>
+              <mat-radio-button value="2">Inaktiv</mat-radio-button>
+            </mat-radio-group>
+          </section>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+    <div class="cards-container">
+      <div class="user-cards-container">
+        <app-user-card *ngFor="let user of users" [user]="user"></app-user-card>
+      </div>
+      <div class="load-more">
+        <button mat-raised-button color="primary">Load more</button>
+      </div>
+    </div>
+  </div>
+</div>

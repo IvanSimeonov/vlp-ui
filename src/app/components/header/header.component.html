@@ -9,9 +9,24 @@
     </button>
     <mat-nav-list class="nav-list">
       <a mat-list-item routerLink="/courses" routerLinkActive>Courses</a>
-      <a mat-list-item routerLink="/login" routerLinkActive>Login</a>
-      <a mat-list-item routerLink="/register" routerLinkActive>Register</a>
-      <button mat-icon-button [matMenuTriggerFor]="profileMenu">
+      <a mat-list-item routerLink="/users" *ngIf="isUserAdmin" routerLinkActive
+        >Users</a
+      >
+      <a mat-list-item routerLink="/login" *ngIf="!isLoggedIn" routerLinkActive
+        >Login</a
+      >
+      <a
+        mat-list-item
+        routerLink="/register"
+        *ngIf="!isLoggedIn"
+        routerLinkActive
+        >Register</a
+      >
+      <button
+        mat-icon-button
+        [matMenuTriggerFor]="profileMenu"
+        *ngIf="isLoggedIn"
+      >
         <mat-icon>account_circle</mat-icon>
       </button>
       <mat-menu #profileMenu="matMenu">
@@ -26,14 +41,19 @@
           Notifications
         </button>
         <mat-divider></mat-divider>
-        <button mat-menu-item routerLink="/settings" routerLinkActive>
+        <button mat-menu-item routerLink="/profile" routerLinkActive>
           Account Settings
         </button>
         <button mat-menu-item routerLink="/language" routerLinkActive>
           Language
         </button>
         <mat-divider></mat-divider>
-        <button mat-menu-item routerLink="/logout" routerLinkActive>
+        <button
+          mat-menu-item
+          *ngIf="isLoggedIn"
+          routerLinkActive
+          (click)="logout()"
+        >
           Logout
         </button>
       </mat-menu>

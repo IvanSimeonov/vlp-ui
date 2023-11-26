@@ -1,0 +1,131 @@
+<div class="container">
+  <div class="left-side">
+    <mat-card>
+      <mat-card-content>
+        <div class="avatar-container">
+          <div class="avatar-preview">
+            <img
+              src="https://xsgames.co/randomusers/assets/avatars/male/46.jpg"
+              alt="user-avatar"
+              class="user-avatar-img"
+            />
+          </div>
+          <div class="username-container">
+            <h2>Ivan Simeonov</h2>
+          </div>
+        </div>
+        <div class="nav-list">
+          <mat-nav-list>
+            <mat-list-item (click)="selectedNavItem = 'profile'">
+              Profile
+            </mat-list-item>
+            <mat-list-item (click)="selectedNavItem = 'avatar'">
+              Avatar
+            </mat-list-item>
+            <mat-list-item (click)="selectedNavItem = 'security'">
+              Security
+            </mat-list-item>
+          </mat-nav-list>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="right-side">
+    <ng-container [ngSwitch]="selectedNavItem">
+      <!-- Profile Form -->
+      <mat-card *ngSwitchCase="'profile'">
+        <mat-card-header>
+          <mat-card-title> Profile </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="profile-form">
+          <mat-form-field>
+            <mat-label>First Name</mat-label>
+            <input
+              matInput
+              placeholder="First Name"
+              required
+              value="{{ userData.firstName }}"
+            />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Last Name</mat-label>
+            <input
+              matInput
+              placeholder="Last Name"
+              required
+              value="{{ userData.lastName }}"
+            />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>About Me</mat-label>
+            <textarea matInput placeholder="About Me"></textarea>
+          </mat-form-field>
+          <button mat-raised-button color="primary">Save Profile</button>
+        </mat-card-content>
+      </mat-card>
+
+      <!-- Avatar Form -->
+      <mat-card *ngSwitchCase="'avatar'">
+        <mat-card-header>
+          <mat-card-title> Avatar </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="avatar-form">
+          <input type="file" (change)="onFileChange($event)" />
+          <div *ngIf="previewUrl" class="avatar-preview">
+            <img [src]="previewUrl" alt="Avatar Preview" />
+          </div>
+          <button mat-raised-button color="primary">Upload Avatar</button>
+        </mat-card-content>
+      </mat-card>
+
+      <!-- Security Form -->
+      <mat-card *ngSwitchCase="'security'">
+        <mat-card-header>
+          <mat-card-title> Security </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="security-form">
+          <mat-form-field>
+            <mat-label>Current Password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" required />
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="hide = !hide"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide"
+            >
+              <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            </button>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>New Password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" required />
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="hide = !hide"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide"
+            >
+              <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            </button>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Confirm New Password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" required />
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="hide = !hide"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide"
+            >
+              <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+            </button>
+          </mat-form-field>
+          <button mat-raised-button color="primary">Change Password</button>
+        </mat-card-content>
+      </mat-card>
+    </ng-container>
+  </div>
+</div>

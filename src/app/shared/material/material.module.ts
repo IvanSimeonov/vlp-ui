@@ -9,6 +9,11 @@ import { MatDividerModule } from "@angular/material/divider";
 import { MatInputModule } from "@angular/material/input";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatCardModule } from "@angular/material/card";
+import { MatPaginatorModule } from "@angular/material/paginator";
+import { MatSelectModule } from "@angular/material/select";
+import { MatCheckboxModule } from "@angular/material/checkbox";
+import { MatRadioModule } from "@angular/material/radio";
+import { MatExpansionModule } from "@angular/material/expansion";
 
 const materialModules = [
   MatButtonModule,
@@ -21,6 +26,11 @@ const materialModules = [
   MatInputModule,
   MatFormFieldModule,
   MatCardModule,
+  MatPaginatorModule,
+  MatSelectModule,
+  MatCheckboxModule,
+  MatRadioModule,
+  MatExpansionModule,
 ];
 
 @NgModule({
