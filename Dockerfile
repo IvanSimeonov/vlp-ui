@@ -7,7 +7,7 @@ RUN npm install
 
 COPY . ./
 
-RUN $(npm bin)/ng build
+RUN npm run build
 
 FROM nginx:1.25.3-alpine
 
