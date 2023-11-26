@@ -4,6 +4,7 @@ import { LoginComponent } from "./login.component";
 import { MaterialModule } from "src/app/shared/material/material.module";
 import { ReactiveFormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
 
 describe("LoginComponent", () => {
   let component: LoginComponent;
@@ -11,7 +12,12 @@ describe("LoginComponent", () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [MaterialModule, ReactiveFormsModule, BrowserAnimationsModule],
+      imports: [
+        MaterialModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        HttpClientTestingModule,
+      ],
       declarations: [LoginComponent],
     });
     fixture = TestBed.createComponent(LoginComponent);

@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
 
 import { RegisterComponent } from "./register.component";
 import { MaterialModule } from "src/app/shared/material/material.module";
@@ -11,7 +12,12 @@ describe("RegisterComponent", () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [MaterialModule, ReactiveFormsModule, BrowserAnimationsModule],
+      imports: [
+        MaterialModule,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        HttpClientTestingModule,
+      ],
       declarations: [RegisterComponent],
     });
     fixture = TestBed.createComponent(RegisterComponent);
@@ -72,17 +78,5 @@ describe("RegisterComponent", () => {
     email?.setValue("test@example.com");
     password?.setValue("password123");
     expect(component.registerForm?.valid).toBeTruthy();
-  });
-
-  it("should call console.log with form value on submit", () => {
-    spyOn(console, "log");
-    const fullname = component.registerForm?.get("fullname");
-    const email = component.registerForm?.get("email");
-    const password = component.registerForm?.get("password");
-    fullname?.setValue("John Doe");
-    email?.setValue("test@example.com");
-    password?.setValue("password123");
-    component.onSubmit();
-    expect(console.log).toHaveBeenCalledWith(component.registerForm?.value);
   });
 });

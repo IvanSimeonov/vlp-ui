@@ -9,6 +9,6 @@ export class CourseCardComponent {
   @Input() course: any;
 
   getRemainingStars(): number {
-    return 5 - this.course.rating;
+    return 5 - this.course?.rating;
   }
 }

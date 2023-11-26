@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { HeaderComponent } from "./components/header/header.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import { MatSidenav } from "@angular/material/sidenav";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
 
 describe("AppComponent", () => {
   let component: AppComponent;
@@ -18,7 +19,12 @@ describe("AppComponent", () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BrowserAnimationsModule, RouterTestingModule, MaterialModule],
+      imports: [
+        BrowserAnimationsModule,
+        RouterTestingModule,
+        MaterialModule,
+        HttpClientTestingModule,
+      ],
       declarations: [AppComponent, HeaderComponent, FooterComponent],
       providers: [{ provide: MatSidenav, useValue: matSidenavMock }],
     }).compileComponents();
