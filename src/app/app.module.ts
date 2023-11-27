@@ -23,6 +23,8 @@ import { PageNotFoundComponent } from "./pages/page-not-found/page-not-found.com
 import { PageForbiddenComponent } from "./pages/page-forbidden/page-forbidden.component";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { AuthInterceptor } from "./auth/interceptors/auth.interceptor";
+import { BASE_PATH as VLP_BACKEND_BASE_PATH } from "@ivannicksim/vlp";
+import { environment } from "../environments/environment";
 
 @NgModule({
   declarations: [
@@ -53,6 +55,10 @@ import { AuthInterceptor } from "./auth/interceptors/auth.interceptor";
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    {
+      provide: VLP_BACKEND_BASE_PATH,
+      useValue: environment.vlpBackendBasePath,
+    },
   ],
   bootstrap: [AppComponent],
 })

@@ -37,7 +37,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
       - name: Build
-        run: npm run build
+        run: npm run build:intg
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
