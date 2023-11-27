@@ -7,7 +7,7 @@ RUN npm install
 
 COPY . ./
 
-RUN npm run build
+RUN npm run build:intg
 
 FROM nginx:1.25.3
 
