@@ -1,3 +1,3 @@
 export const environment = {
-  vlpBackendBasePath: "http://vlp-backend:34200",
+  vlpBackendBasePath: "http://vlp-backend:31200",
 };
